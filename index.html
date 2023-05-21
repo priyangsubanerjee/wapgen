@@ -12,6 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Great+Vibes&family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <script src="./script.js" defer></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.4/iconify-icon.min.js"></script>
     <script>
       tailwind.config = {
@@ -35,7 +36,7 @@
         iure asperiores nemo corrupti aut, ullam reprehenderit quod adipisci?
       </p>
 
-      <form action="" class="mt-8">
+      <form action="" id="form" class="mt-8">
         <div class="">
           <label for="" class="block text-sm font-semibold text-slate-500"
             >Phone</label
@@ -45,15 +46,16 @@
           >
             <div class="bg-slate-100 w-20 h-12 border-r">
               <select
+                id="countryCode"
                 name=""
                 id=""
                 class="h-12 w-full appearance-none px-4 bg-transparent text-center outline-none text-slate-700 font-medium font-poppins"
               >
-                <option value="62">+91</option>
-                <option value="63">+63</option>
-                <option value="64">+64</option>
-                <option value="65">+65</option>
-                <option value="66">+66</option>
+                <option value="+91">+91</option>
+                <option value="+63">+63</option>
+                <option value="+64">+64</option>
+                <option value="+65">+65</option>
+                <option value="+66">+66</option>
               </select>
             </div>
             <input
@@ -61,7 +63,7 @@
               class="px-4 w-full h-full bg-transparent outline-none text-slate-700"
               placeholder="Phone number"
               name=""
-              id=""
+              id="phone"
             />
           </div>
         </div>
@@ -72,7 +74,7 @@
           <div class="border rounded-md overflow-hidden mt-3">
             <textarea
               name=""
-              id=""
+              id="message"
               class="w-full resize-none px-4 py-3 bg-transparent outline-none text-slate-700"
               rows="4"
               placeholder="Enter your message here"
@@ -87,7 +89,7 @@
           </button>
         </div>
       </form>
-      <div class="mt-7">
+      <div id="result" class="mt-10 hidden">
         <p class="font-poppins text-sm font-medium text-slate-600">
           Link generated successfully 🎉
         </p>
@@ -98,6 +100,7 @@
             icon="ion:link-outline"
           ></iconify-icon>
           <a
+            id="link"
             href=""
             class="text-xs text-blue-500 ml-4 whitespace-nowrap text-ellipsis overflow-hidden"
           >
@@ -109,7 +112,8 @@
         </div>
         <div class="mt-5 h-10 flex items-center">
           <button
-            class="flex items-center h-full px-3 bg-slate-100 font-poppins text-xs rounded text-slate-700"
+            id="copy"
+            class="flex items-center h-full px-3 bg-slate-100 font-poppins text-xs rounded text-slate-700 transition-all"
           >
             <iconify-icon
               height="18"
@@ -119,7 +123,8 @@
             <span class="ml-2">Copy</span>
           </button>
           <button
-            class="flex ml-3 items-center h-full px-3 bg-slate-100 font-poppins text-xs rounded text-slate-700"
+            id="share"
+            class="flex ml-3 items-center h-full px-3 bg-slate-100 font-poppins text-xs rounded text-slate-700 transition-all"
           >
             <iconify-icon
               icon="material-symbols:share"
@@ -128,9 +133,14 @@
             <span class="ml-2">Share</span>
           </button>
           <button
-            class="flex ml-auto items-center h-full bg-indigo-50 px-4 text-indigo-600 font-poppins text-xs rounded text-slate-700"
+            id="reload"
+            class="flex ml-auto items-center h-full bg-indigo-50 px-4 text-indigo-600 font-poppins text-xs rounded text-slate-700 transition-all"
           >
-            <span class="ml-2">Generate new</span>
+            <iconify-icon
+              icon="solar:refresh-bold"
+              style="font-size: 15px"
+            ></iconify-icon>
+            <span class="ml-2">Reload</span>
           </button>
         </div>
       </div>
