@@ -21,7 +21,10 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
-  let link = `https://wa.me/${countryCode.value}${phoneInput.value}?text=${message.value}`;
+  let message = document.querySelector("#message").value;
+  message = message.replace(/ /g, "%20");
+
+  let link = `https://wa.me/${countryCode.value}${phoneInput.value}?text=${message}`;
   resultBox.classList.remove("hidden");
   resultBox.querySelector("#link").setAttribute("href", link);
   resultBox.querySelector("#link").textContent = link;
