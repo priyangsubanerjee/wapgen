@@ -24,7 +24,7 @@ form.addEventListener("submit", (e) => {
   let link = `https://wa.me/${countryCode.value}${phoneInput.value}?text=${
     // message without spaces
     message.value.replace(/\s/g, "%20")
-  }}`;
+  }`;
   resultBox.classList.remove("hidden");
   resultBox.querySelector("#link").setAttribute("href", link);
   resultBox.querySelector("#link").textContent = link;
