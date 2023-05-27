@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Generate Instanat Whatsapp Link</title>
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,7 +44,27 @@
   </head>
   <body class="h-screen bg-slate-50">
     <div class="border lg:w-[600px] p-8 mx-auto bg-white lg:mt-10">
-      <h1 class="font-semibold font-poppins text-slate-700 text-2xl">
+      <div class="flex items-center justify-end">
+        <button
+          id="openhistory"
+          class="flex items-center space-x-2 font-poppins px-3 py-2 rounded bg-zinc-100"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            fill="currentColor"
+            class="bi bi-globe-americas"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484-.08.08-.162.158-.242.234-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z"
+            />
+          </svg>
+          <span class="text-xs">History</span>
+        </button>
+      </div>
+      <h1 class="font-semibold font-poppins text-slate-700 text-2xl mt-4">
         Whatsapp link generator
       </h1>
       <p class="text-xs font-poppins text-slate-500 leading-6 mt-2">
@@ -158,6 +179,34 @@
             <span class="ml-2">Reload</span>
           </button>
         </div>
+      </div>
+    </div>
+    <div
+      id="historymodal"
+      class="fixed inset-0 h-screen w-screen bg-black/70 items-center justify-center hidden"
+    >
+      <div
+        class="h-screen w-screen lg:w-[600px] lg:h-[700px] bg-white lg:rounded-md p-6 lg:p-8 overflow-y-auto"
+      >
+        <div class="flex items-center justify-end">
+          <button
+            id="closehistory"
+            class="bg-slate-100 text-xs px-4 py-2 rounded flex items-center space-x-2"
+          >
+            <iconify-icon
+              class="poiner-events-none"
+              icon="uiw:close"
+            ></iconify-icon>
+            <span class="poiner-events-none">Close</span>
+          </button>
+        </div>
+        <h1 class="font-poppins text text-xl font-semibold text-slate-900 mt-4">
+          History
+        </h1>
+        <p class="text-xs text-slate-600 mt-3">
+          Capped to 10 items in free plan !
+        </p>
+        <div id="historyContainer" class="mt-6"></div>
       </div>
     </div>
   </body>
